@@ -1,59 +1,242 @@
 <html>
+
 <body>
-    <h3>Diabetes Prediction</h3>
+    <div>
+    <h2>Diyabet tahmini için soruları</h2>
+    <h2>cevaplayabilirsiniz.</h2>
+    <h2>Soruları yakın zamandaki</h2>
+    <h2> davranışlarınıza göre yanıtlayın.</h2>
+    </div>
 
 <div>
   <form action="/result" method="POST">
-    <label for="Gender">Gender</label>
-    <select id="Gender" name="Gender">
-      <option value="0">Female</option>
-      <option value="1">Male</option>
+    <label for="standard-select">Cinsiyetiniz?</label>
+    <div class="select">
+
+    <select id="standard-select" name="Gender">
+      <option value="0">Kadın</option>
+      <option value="1">Erkek</option>
     </select>
+    <span class="focus"></span>
+
+    </div>
     <br>
-    <label for="Polyuria">Polyuria</label>
-    <select id="Polyuria" name="Polyuria">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">İdrar miktarınız arttı mı?</label>
+    <div class="select">
+    <select id="standard-select" name="Polyuria">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+    </div>
+
     <br>
-    <label for="Polydipsia">Polydipsia</label>
-    <select id="Polydipsia" name="Polydipsia">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">İçtiğiniz su miktarı arttı mı?</label>
+    <div class="select">
+    <select id="standard-select" name="Polydipsia">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+    </div>
+
     <br>
-    <label for="sudden weight loss">sudden weight loss</label>
-    <select id="sudden weight loss" name="sudden weight loss">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">Ani bir kilo kaybınız var mı?</label>
+    <div class="select">
+    <select id="standard-select" name="sudden weight loss">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+    </div>
+
     <br>
-    <label for="Polyphagia">Polyphagia</label>
-    <select id="Polyphagia" name="Polyphagia">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">Yeme isteğiniz arttı mı?</label>
+    <div class="select">
+    <select id="standard-select" name="Polyphagia">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+    </div>
+
     <br>
-    <label for="Irritability">Irritability</label>
-    <select id="Irritability" name="Irritability">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">Çabuk öfkeleniyor musunuz?</label>
+    <div class="select">
+    <select id="standard-select" name="Irritability">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+
+    </div>
+
     <br>
-    <label for="partial paresis">partial paresis</label>
-    <select id="partial paresis" name="partial paresis">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">Kısmi kas gücü kaybınız var mı?</label>
+    <div class="select">
+    <select id="standard-select" name="partial paresis">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+    </div>
+
     <br>
-    <label for="Alopecia">Alopecia</label>
-    <select id="Alopecia" name="Alopecia">
-      <option value="0">No</option>
-      <option value="1">Yes</option>
+    <label for="standard-select">Bölgesel saç dökülmeniz var mı?</label>
+    <div class="select">
+    <select id="standard-select" name="Alopecia">
+      <option value="0">Hayır</option>
+      <option value="1">Evet</option>
     </select>
+    <span class="focus"></span>
+    </div>
+
         <br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Sonuç">
   </form>
 </div>
+
+
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+input {
+  background-color: transparent;
+
+  text-decoration: none;
+  margin: 4px 2px;
+
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+
+
+}
+
+select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+
+  // Stack above custom arrow
+  z-index: 1;
+
+  // Remove dropdown arrow in IE10 & IE11
+  // @link https://www.filamentgroup.com/lab/select-css.html
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Remove focus outline, will add on alternate element
+  outline: none;
+
+
+}
+
+
+.select {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  min-width: 15ch;
+  max-width: 30ch;
+
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+
+  // Optional styles
+  // remove for transparency
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+}
+
+// Interim solution until :focus-within has better support
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--select-focus);
+  border-radius: inherit;
+}
+
+
+
+label {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.select + label {
+  margin-top: 2rem;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  grid-gap: 0.5rem;
+  font-family: "Baloo 2", sans-serif;
+  background-color: #e9f2fd;
+  padding: 1rem;
+}
+
+h2 {
+  margin: 2pt;
+}
+
+</style>
+
 </body>
 </html>
