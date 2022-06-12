@@ -32,11 +32,14 @@ def result():
         result = ValuePredictor(to_predict_list)
         
         if int(result)==1:
-            prediction='%97 ihtimalle diyabet olabilirsin, bir doktora görün.'
+            prediction="%97 ihtimalle diyabetsin,"
+            prediction2="bir doktora görünmelisin."
+
         else:
             prediction='%97 ihtimalle sağlıklısın.'
+            prediction2=""
             
-        return render_template("result.html",prediction=prediction)
+        return render_template("result.html",prediction=prediction,prediction2=prediction2)
 
 if __name__ == "__main__":
 	app.run(debug=True)
